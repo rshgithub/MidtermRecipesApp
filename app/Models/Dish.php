@@ -66,4 +66,13 @@ class Dish extends Model
             return false;
         }
     }
+
+
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($dish) {
+            $dish->ingredients()->delete();
+        });
+    }
 }

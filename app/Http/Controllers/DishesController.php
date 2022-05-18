@@ -142,10 +142,8 @@ class DishesController extends Controller
      */
     public function destroy($dish)
     {
-
         if($dish) {
             $dish->delete();
-            Ingredient::where('dish_id', $dish)->delete();
             return response()->json(['message'=>'success']);
         }else{
             return response()->json(['message' => 'this Dish does not exist']);

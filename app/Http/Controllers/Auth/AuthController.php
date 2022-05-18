@@ -118,13 +118,11 @@ class AuthController extends Controller
             ]
         );
 
-        if(!Hash::check($validated['current_password'],auth()->user->password)){
+        if(!Hash::check($validated['current_password'],auth()->user()->password)){
             return response()->json(['message' => 'current password is not correct',],404);
         }
 
-        User::updating(function ($user) {
-            $user->password = Hash::make($user->password);
-        });
+        auth()->user()->update(['password' => Hash::make($request->password)]);
 
     }
 
