@@ -20,6 +20,7 @@ class IngredientResource extends JsonResource
             'ingredient' => $this->ingredient,
             'unit' => $this->unit,
             'measure' => $this->measure,
+            'ingredient_dish_name' => $this->ingredient_dish_name,
         ];
     }
 }

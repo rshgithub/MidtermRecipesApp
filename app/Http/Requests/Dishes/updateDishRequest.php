@@ -26,7 +26,7 @@ class updateDishRequest extends FormRequest
         return [
 
             'name'=>'sometimes|string|unique:dishes,name'.$this->dish_id,
-            'category_id'=>'sometimes|numeric|exists:categories,category_id',
+            'category_id'=>'sometimes|numeric|exists:categories,id',
             'preparation_time'=>'sometimes|string',
             'description'=>'sometimes|max:1000',
             'serve'=>'sometimes|string',

@@ -8,6 +8,7 @@ use App\Http\Requests\Ratings\newRateRequest;
 use App\Http\Resources\DishResource;
 use App\Models\Dish;
 use App\Models\Favorite;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -141,8 +142,10 @@ class DishesController extends Controller
      */
     public function destroy($dish)
     {
+
         if($dish) {
             $dish->delete();
+            Ingredient::where('dish_id', $dish)->delete();
             return response()->json(['message'=>'success']);
         }else{
             return response()->json(['message' => 'this Dish does not exist']);

@@ -25,7 +25,7 @@ class updateIngredientRequest extends FormRequest
     {
         return [
 
-            'dish_id'=>'sometimes|numeric|exists:dishes,dish_id'.$this->ingredient_id,
+            'dish_id'=>'sometimes|numeric|exists:dishes,id'.$this->ingredient_id,
             'unit'=>'sometimes|numeric|',
             'ingredient'=>'sometimes|string',
             'measure'=>'sometimes|in:g,kg,cl,L,lbs,tsp,tbs,gill,cup'
