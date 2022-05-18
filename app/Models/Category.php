@@ -25,4 +25,11 @@ class Category extends Model
         return $this->dishes ? $this->dishes : 'dishes not found';
     }
 
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($category) {
+            $category->dishes()->delete();
+        });
+    }
 }

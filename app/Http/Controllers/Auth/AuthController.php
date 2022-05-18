@@ -36,18 +36,6 @@ class AuthController extends Controller
     }
 
 
-//    public function getVerificationCode(){
-//
-//        $user = Auth::user();
-//
-//        User::creating(function ($user) {
-//            $user->verification_code = rand(100000, 999999);
-//        });
-//
-//        return response()->json(['message' => 'your verification code is ready ',  'data' => [ 'verification_code' => $user->verification_code]]);
-//    }
-
-
     public function login(LoginRequest $request)
     {
         $user = User::where('email', $request->email)->first();
