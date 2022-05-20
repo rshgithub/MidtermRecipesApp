@@ -48,7 +48,7 @@ class DishesController extends Controller
         return response()->json( ['message' => 'success', 'data' => $dishIngredients ]);
     }
 
-    public function restoreDeletedRow($dish)
+    public function restoreDeletedDish($dish)
     {
         $trashed = Dish::withTrashed()->find($dish);
         if($trashed) {
@@ -151,14 +151,14 @@ class DishesController extends Controller
     }
 
     public function deleteAllDishes(){
-        $count = DB::table('dishes')->count();
+
+        $count = Dish::count();
         if($count != 0) {
             Dish::truncate();
             return response()->json(['message'=>'success']);
         }else {
             return response()->json(['message' => 'table is already empty']);
         }
-
     }
 
     // ------------------------------------------------------ favorite -------------------------------------------------

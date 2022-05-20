@@ -24,7 +24,7 @@ class UsersController extends Controller
         return response()->json( User::all());
     }
 
-    public function geUserProfile($user)
+    public function getUserProfile($user)
     {
         $user = User::find($user);
         if($user) {

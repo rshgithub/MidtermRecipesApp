@@ -35,26 +35,26 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     // ----------------------------------------------------- users -----------------------------------------------------
 
-    Route::delete('deleteAllUsers', [UsersController::class, 'deleteAllUsers']);
-    Route::get('geUserProfile/{id}', [UsersController::class, 'geUserProfile']);
+    Route::delete('AllUsers', [UsersController::class, 'deleteAllUsers']);
+    Route::get('UserProfile/{id}', [UsersController::class, 'getUserProfile']);
 
     Route::apiResource('users', UsersController::class);
 
     // ------------------------------------------------------ favorite -------------------------------------------------
 
-    Route::get('getAllAuthFavs', [FavoritesController::class, 'getAllAuthFavs']);
-    Route::get('getAllUserFavs/{id}', [FavoritesController::class, 'getAllUserFavs']);
-    Route::delete('deleteAllAuthFavs', [FavoritesController::class, 'deleteAllAuthFavs']);
-    Route::delete('deleteAllUserFavs/{id}', [FavoritesController::class, 'deleteAllUserFavs']);
+    Route::get('AllAuthFavs', [FavoritesController::class, 'getAllAuthFavs']);
+    Route::get('AllUserFavs/{id}', [FavoritesController::class, 'getAllUserFavs']);
+    Route::delete('AllAuthFavs', [FavoritesController::class, 'deleteAllAuthFavs']);
+    Route::delete('AllUserFavs/{id}', [FavoritesController::class, 'deleteAllUserFavs']);
 
     Route::apiResource('favorites', FavoritesController::class);
 
     // ------------------------------------------------------ rating ---------------------------------------------------
 
-    Route::get('getAllAuthRatings', [RatingsController::class, 'getAllAuthRatings']);
-    Route::get('getAllUserRatings/{id}', [RatingsController::class, 'getAllUserRatings']);
-    Route::delete('deleteAllAuthRatings', [RatingsController::class, 'deleteAllAuthRatings']);
-    Route::delete('deleteAllUserRatings/{id}', [RatingsController::class, 'deleteAllUserRatings']);
+    Route::get('AllAuthRatings', [RatingsController::class, 'getAllAuthRatings']);
+    Route::get('AllUserRatings/{id}', [RatingsController::class, 'getAllUserRatings']);
+    Route::delete('AllAuthRatings', [RatingsController::class, 'deleteAllAuthRatings']);
+    Route::delete('AllUserRatings/{id}', [RatingsController::class, 'deleteAllUserRatings']);
 
     Route::apiResource('ratings', RatingsController::class);
 
@@ -65,27 +65,28 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('rateDish/{id}', [DishesController::class, 'rateDish']);
     Route::post('unRateDish/{id}', [DishesController::class, 'unRateDish']);
 
-    Route::delete('deleteAllDishes', [DishesController::class, 'deleteAllDishes']);
-    Route::get('getDishesWithIngredients', [DishesController::class, 'getDishesWithIngredients']);
-    Route::get('getDishIngredients/{id}', [DishesController::class, 'getDishIngredients']);
-    Route::get('getMostFavedDishes', [DishesController::class, 'getMostFavedDishes']);
-    Route::get('getDeletedDishes', [DishesController::class, 'getDeletedDishes']);
-    Route::get('getDishesWithDeleted', [DishesController::class, 'getDishesWithDeleted']);
-    Route::get('restoreDeletedRow/{id}', [DishesController::class, 'restoreDeletedRow']);
+    Route::delete('AllDishes', [DishesController::class, 'deleteAllDishes']);
+    Route::get('DishesWithIngredients', [DishesController::class, 'getDishesWithIngredients']);
+    Route::get('DishIngredients/{id}', [DishesController::class, 'getDishIngredients']);
+    Route::get('MostFavedDishes', [DishesController::class, 'getMostFavedDishes']);
+    Route::get('DeletedDishes', [DishesController::class, 'getDeletedDishes']);
+    Route::get('DishesWithDeleted', [DishesController::class, 'getDishesWithDeleted']);
+    Route::get('DeletedDish/{id}', [DishesController::class, 'restoreDeletedDish']);
 
     Route::apiResource('dishes', DishesController::class);
 
     // ---------------------------------------------------- category ---------------------------------------------------
 
-    Route::delete('deleteAllCategories', [CategoriesController::class, 'deleteAllCategories']);
-    Route::get('getCategoriesWithDishes', [CategoriesController::class, 'getCategoriesWithDishes']);
-    Route::get('getCategoryDishes/{id}', [CategoriesController::class, 'getCategoryDishes']);
+    Route::delete('AllCategories', [CategoriesController::class, 'deleteAllCategories']);
+    Route::get('CategoriesWithDishes', [CategoriesController::class, 'getCategoriesWithDishes']);
+    Route::get('CategoryDishes/{id}', [CategoriesController::class, 'getCategoryDishes']);
 
     Route::apiResource('categories', CategoriesController::class);
 
     // ---------------------------------------------------- ingredient ---------------------------------------------------
 
-    Route::delete('deleteAllIngredients', [IngredientsController::class, 'deleteAllIngredients']);
+    Route::delete('
+    AllIngredients', [IngredientsController::class, 'deleteAllIngredients']);
 
     Route::apiResource('ingredients', IngredientsController::class);
 
