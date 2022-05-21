@@ -73,5 +73,13 @@ class Dish extends Model
         static::deleting(function($dish) {
             $dish->ingredients()->delete();
         });
+
+        static::deleting(function($dish) {
+            $dish->ratings()->delete();
+        });
+
+        static::deleting(function($dish) {
+            $dish->favorites()->delete();
+        });
     }
 }

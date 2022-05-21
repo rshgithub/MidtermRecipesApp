@@ -61,9 +61,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     // ------------------------------------------------------ dish -----------------------------------------------------
 
     Route::post('addDishToFavs/{id}', [DishesController::class, 'addDishToFavs']);
-    Route::post('unFavDish/{id}', [DishesController::class, 'unFavDish']);
+    Route::delete('unFavDish/{id}', [DishesController::class, 'unFavDish']);
     Route::post('rateDish/{id}', [DishesController::class, 'rateDish']);
-    Route::post('unRateDish/{id}', [DishesController::class, 'unRateDish']);
+    Route::delete('unRateDish/{id}', [DishesController::class, 'unRateDish']);
 
     Route::delete('AllDishes', [DishesController::class, 'deleteAllDishes']);
     Route::get('DishesWithIngredients', [DishesController::class, 'getDishesWithIngredients']);

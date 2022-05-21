@@ -10,8 +10,9 @@ class Rate extends Model
     use HasFactory;
 
     protected $table = 'ratings';
-    protected $fillable = ['user_id','dish_id','rate'];
+    protected $fillable = ['rate'];
     protected $hidden = ['created_at','updated_at','type'];
+    protected $guarded = [];
 
 
 
